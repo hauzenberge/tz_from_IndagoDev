@@ -32,10 +32,8 @@ class GenerateRandomTitle extends Command
             $notes = Note::all();
 
             foreach ($notes as $note) {
-                // Генерація нового случайного заголовка для кожної замітки
                 $newTitle = $this->generateRandomTitle();
 
-                // Оновлення заголовка замітки
                 $note->update(['title' => $newTitle]);
 
                 $this->info("Updated title for note #{$note->id}: $newTitle");
@@ -45,9 +43,6 @@ class GenerateRandomTitle extends Command
 
     private function generateRandomTitle()
     {
-        // Логіка для генерації нового случайного заголовка
-        // Ваш код для генерації заголовка, наприклад, використовуючи Faker
-
         return \Faker\Factory::create()->sentence;
     }
 }
